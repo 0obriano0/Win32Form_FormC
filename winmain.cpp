@@ -11,9 +11,9 @@ static TCHAR szWindowClass[] = _T("win32app");
 static TCHAR szTitle[] = _T("Win32 Guided Tour Application");
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam){ 
-	PAINTSTRUCT ps; 
-	HDC hdc; 
-	TCHAR greeting[] = _T("Hello, World!"); 
+	PAINTSTRUCT ps;
+	HDC hdc;
+	TCHAR greeting[] = _T("Hello, World!");
 	switch(message){ 
 		case WM_PAINT: 
 			hdc = BeginPaint(hWnd, &ps); 
