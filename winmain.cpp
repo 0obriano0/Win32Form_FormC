@@ -52,17 +52,20 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 	//hInst = hInstance; 
 	HWND hWnd = CreateWindow( szWindowClass, szTitle, WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, 500, 100, NULL, NULL, hInstance, NULL ); 
 	if(!hWnd){ 
-		MessageBox(NULL, _T("Call to CreateWindow failed!"), _T("Win32 Guided Tour"), NULL); 
+		MessageBox(NULL, _T("Call to CreateWindow failed!"), _T("Win32 Guided Tour"), NULL);
 		return 1; 
-	} 
+	}
 	
-	ShowWindow(hWnd, nCmdShow); 
+	ShowWindow(hWnd, nCmdShow);
 	UpdateWindow(hWnd);
-	
 	MSG msg;
-	while(GetMessage(&msg, NULL, 0, 0)){ 
+	while(GetMessage(&msg, NULL, 0, 0)){
+		TranslateMessage(&msg);
+		DispatchMessage(&msg);
+	}
+	/*
 		TranslateMessage(&msg); 
-		DispatchMessage(&msg); 
-	} 
-	return(int) msg.wParam; 
+		DispatchMessage(&msg);
+	*/
+	return(int) msg.wParam;
 } 
